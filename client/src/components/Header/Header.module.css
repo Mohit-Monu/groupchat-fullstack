@@ -1,0 +1,37 @@
+.parent {
+  height: 60px;
+  display: block;
+  padding: 5px;
+}
+.box {
+  position: absolute;
+  float: left;
+  margin-left: 20px;
+}
+.box img {
+  height: 50px;
+  width: 50px;
+}
+.box h3 {
+  float: right;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.box2 {
+  float: right;
+  margin-right: 5px;
+}
+.box2 Form {
+  float: left;
+  margin-top: 12px;
+  margin-right: 10px;
+}
+.box2 img {
+  height: 50px;
+  width: 50px;
+}
+.userpic{
+  border-radius: 25px;
+  margin-right: 10px;
+  cursor: pointer;
+}

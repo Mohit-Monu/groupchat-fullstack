@@ -1,0 +1,39 @@
+
+.othermsg {
+  float: left;
+  width: 70%;
+  border-radius: 0px 10px 10px 10px;
+  padding: 4px;
+  position: relative;
+  margin-bottom: 7px;
+}
+.msg {
+  padding-left: 5px;
+  margin-top: 3px;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+.name{
+  padding-left: 5px;
+  color: darkblue;
+}
+.time {
+  float: right; 
+  color: darkblue;
+  position: absolute; 
+  bottom: 4px; 
+  right: 4px; 
+  font-size: 16px;
+}
+.bigbox {
+  padding: 7px;
+}
+.yourmsg {
+  float: right;
+  width: 70%;
+  border-radius: 10px 0px 10px 10px;
+  padding: 4px;
+  position: relative;
+  margin-bottom: 7px;
+
+}

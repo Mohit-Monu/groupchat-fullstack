@@ -1,0 +1,13 @@
+.userbox{
+    height: 100%;
+    overflow: hidden;
+}
+.bigbox{
+    height: 93vh;
+}
+.vertical-line {
+    border-left: 1px solid #000; /* Adjust color and width as needed */
+    height: 100%; /* This ensures the line stretches to the full height of its container */
+    position: absolute; /* Position it absolutely within its container */
+    top: 0; /* Position it at the top of its container */
+  }

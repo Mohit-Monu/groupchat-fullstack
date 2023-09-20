@@ -1,0 +1,102 @@
+/* Your CSS (e.g., styles.css) */
+.group-container-big{
+  height: 94vh;
+  overflow: scroll;
+}
+.group-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .groupimage {
+    margin-top: 5px;
+    border-radius: 50%; 
+    height: 30vh;
+    width: 30vh;
+  }
+  
+  .group-name {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .group-description {
+    font-size: 20px;
+    margin: 5px 0;
+  }
+  
+  .group-createdAt {
+    font-size: 15px;
+  }
+  .input-field {
+    width: 75%;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 38px;
+    font-size: 17px;
+    padding: 0 25px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    border: 2px solid black;
+    box-shadow: 2px 20px 20px 20px rgba(2, 2, 2, 0.05);
+    outline: none;
+    transition: 0.3s;
+  }
+
+  .input-field:focus {
+    width: 78%;
+  }
+  .input-box button{
+    width: 20%;
+    border-radius: 25px;
+    height: 38px;
+    margin-top: -5px;
+  }
+  .input-box p{
+    color: red;
+  }
+  .participent {
+    align-items: center;
+    height: 65px;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 2px;
+    margin-right:5px ;
+  }
+  .participent img{
+    float: left;
+    width: 50px;
+    border-radius: 50%; 
+  }
+  .participent h4{
+    margin-top: 10px;
+    float: left;
+    margin-left: 20px;
+  }
+  .participent button{
+    margin-top: 5px;
+
+    float: right;
+  }
+  .participent p{
+    float: right;
+    margin-top: 10px;
+    margin-right: 5px;
+
+  }
+
+  @media (max-width: 717px) {
+    .input-field {
+      width: 70%;
+    }
+    .input-field:focus {
+      width: 71%;
+    }
+    .input-box button{
+    width: 25%;
+
+    }
+  }

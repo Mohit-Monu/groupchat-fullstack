@@ -1,0 +1,36 @@
+.container {
+  margin-top: 30px;
+}
+
+.profile-form-container {
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center form elements horizontally */
+}
+
+.profile-picture-preview {
+  margin-bottom: 10px;
+  border-radius: 50%; /* Apply circular border-radius */
+  overflow: hidden; /* Hide any image overflow outside the circle */
+  width: 150px; /* Set the desired width and height for the circle */
+  height: 150px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+}
+.updatebtn{
+  width: 100%;
+  margin-bottom: 5px;
+}
+.cancelbtn{
+  width: 100%;
+  margin-bottom: 5px;
+}

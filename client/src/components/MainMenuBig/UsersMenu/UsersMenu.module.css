@@ -1,0 +1,71 @@
+.box {
+  margin-bottom: 2.5px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  padding: 0 10px;
+  margin-left: 0px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.big-box{
+  overflow: auto;
+  height: 88vh;
+  border-radius: 5px;
+
+}
+.box img {
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.box h5 {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* WebKit Scrollbar */
+::-webkit-scrollbar {
+  width: 6px; /* Width of the scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background color of the scrollbar track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar handle */
+  border-radius: 6px; /* Radius of the scrollbar handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar handle on hover */
+}
+.inputt{
+  width: 80%;
+  height: 5vh;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 7px;
+  font-size: 18px;
+}
+@media (max-width: 930px) {
+  .inputt{
+    width: 70%;
+  }
+}
+@media (max-width: 643px) {
+  .inputt{
+    width: 65%;
+  }
+}
