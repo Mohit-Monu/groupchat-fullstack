@@ -68,6 +68,24 @@ export const sendMessage = async (conf,token) => {
     throw new Error(err);
   }
 }
+
+export const SendFile = async (conf,token,group_id) => {
+  const config = {
+    data:conf,
+    method: "post",
+    url: "/group/SendFile/"+group_id,
+    headers: {
+      Authorization: token,
+    },
+  };
+  try {
+    const res = await API(config);
+    return res;
+  } catch (err) {
+    console.log(err);
+    throw new Error(err);
+  }
+}
 export const leaveGroup = async (group_id,token,userId) => {
   const config = {
     method: "delete",

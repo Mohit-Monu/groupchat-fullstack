@@ -8,7 +8,13 @@ const ShowUsers = (props) => {
   const token=useSelector(state=>state.authReducer.authData.token)
   const dispatch=useDispatch()
   return (
-      <div onClick={()=>dispatch(getmessage(props.groups._id,props.token))} className={`${classes.box} bg-${theme}`} style={{
+      <div onClick={()=>{
+        dispatch(getmessage(props.groups._id,props.token))
+        if(props.isSmallScreen){
+          props.showmessage()
+        }
+        }
+      } className={`${classes.box} bg-${theme}`} style={{
         border: `2px solid ${theme === "dark" ? "#f8f9fa" : "#343a40"}`,
       }}>
       <img src={props.groups.group_Img?(props.groups.group_Img):(groupicon)} />

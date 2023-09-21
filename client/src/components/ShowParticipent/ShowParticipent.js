@@ -14,8 +14,10 @@ import usericon from "./usericon.png";
 import { Button } from "react-bootstrap";
 import GroupEdit from "./GroupEdit";
 import Spinner from "../Spinner/Spinner";
+import backbtn from "./backbtn.png"
+import backbtnlight from "./backbtnlight.png"
 
-export const ShowParticipent = () => {
+export const ShowParticipent = (props) => {
   const group = useSelector(
     (state) => state.groupReducer.currentgroupdata.group
   );
@@ -107,6 +109,7 @@ export const ShowParticipent = () => {
     <Spinner />
   ) : (
     <div className={`${classes["group-container-big"]}`}>
+        <img className={`${classes["backbtn"]}`} src={theme==="dark"?backbtnlight:backbtn} onClick={()=>{props.showparticepent()}}/>
       <div className={`${classes["group-container"]}`}>
         <img
           className={`${classes["groupimage"]}`}
@@ -204,7 +207,7 @@ export const ShowParticipent = () => {
               <h4 className={`text-${theme === "dark" ? "light" : "dark"}`}>
                 You
               </h4>
-              <Button
+              <Button 
                 onClick={leavegroupHandler}
                 value={user._id}
                 variant={theme}

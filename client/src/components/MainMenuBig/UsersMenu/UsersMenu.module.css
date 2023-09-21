@@ -50,22 +50,17 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555; /* Color of the scrollbar handle on hover */
 }
-.inputt{
-  width: 80%;
-  height: 5vh;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 7px;
-  font-size: 18px;
+.inputContainer {
+  display: flex;
+  align-items: center; /* Vertically center the input and button */
 }
-@media (max-width: 930px) {
-  .inputt{
-    width: 70%;
-  }
+
+.inputt {
+  min-width: 50%;
+  flex-grow: 1; 
+  margin-right: 5px;
 }
-@media (max-width: 643px) {
-  .inputt{
-    width: 65%;
-  }
+
+.addButton {
+  margin-top: 2px;
 }

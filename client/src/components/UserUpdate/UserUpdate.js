@@ -1,29 +1,36 @@
 import React, { useDispatch, useSelector } from "react-redux";
-import classes from "./GroupEdit.module.css";
-import groupicon from "./defaultgroup.jpg";
+import classes from "./UserUpdate.module.css";
+import groupicon from "./usericon.png";
 import { useEffect, useState } from "react";
-import { UpdateGroupPic, UpdateGroup } from "../../actions/GroupActions";
 import Spinner from "../Spinner/Spinner";
-const GroupEdit = (props) => {
+import { UpdateUserPic, updateProfile } from "../../actions/UserActions";
+const UserUpdate = (props) => {
   const [formData, setFormData] = useState({
-    group_Img: "",
-    group_name: "",
-    group_description: "",
+    name: "",
+    profilePic: "",
+    Country: "",
+    pincode: "",
+    Address: "",
+    Phone: "",
   });
   const dispatch = useDispatch();
   const [previewImage, setPreviewImage] = useState(null);
   const [fileuploaded, setFileUploaded] = useState(false);
   const [loading, setloading] = useState(false);
   const groupdetailload = useSelector(
-    (state) => state.groupReducer.currentgroupdata.group
+    (state) => state.authReducer.authData.user
   );
   const token = useSelector((state) => state.authReducer.authData.token);
   const theme = useSelector((state) => state.userSettingReducer.theme);
 
   useEffect(() => {
     setFormData({
-      group_name: groupdetailload.group_name,
-      group_description: groupdetailload.group_description,
+      name: groupdetailload.name,
+      profilePic: groupdetailload.profilePic,
+      Country: groupdetailload.Country,
+      pincode: groupdetailload.pincode,
+      Address: groupdetailload.Address,
+      Phone: groupdetailload.Phone,
     });
   }, [groupdetailload]);
 
@@ -58,12 +65,11 @@ const GroupEdit = (props) => {
     if (fileuploaded) {
       const formDataToSend = new FormData();
       formDataToSend.append("file", formData.group_Img);
-      await dispatch(
-        UpdateGroupPic(formDataToSend, token, groupdetailload._id)
-      );
+      await dispatch(UpdateUserPic(formDataToSend, token));
     }
-    await dispatch(UpdateGroup(formData, token, groupdetailload._id));
+    await dispatch(updateProfile(formData, token));
     setloading(false);
+    props.UserUpdate();
   };
 
   return loading ? (
@@ -78,7 +84,7 @@ const GroupEdit = (props) => {
                 theme === "dark" ? "light" : "dark"
               }`}
             >
-              Group Update
+              User Update
             </h3>
             <form onSubmit={handleSubmit} className={classes["profile-form"]}>
               <center>
@@ -86,8 +92,8 @@ const GroupEdit = (props) => {
                   src={
                     previewImage
                       ? previewImage
-                      : groupdetailload.group_Img
-                      ? groupdetailload.group_Img
+                      : groupdetailload.profilePic
+                      ? groupdetailload.profilePic
                       : groupicon
                   }
                   alt="Profile Preview"
@@ -100,7 +106,7 @@ const GroupEdit = (props) => {
                     theme === "dark" ? "light" : "dark"
                   }`}
                 >
-                  Group Picture:
+                  User Picture:
                 </label>
                 <input
                   type="file"
@@ -119,8 +125,8 @@ const GroupEdit = (props) => {
                 </label>
                 <input
                   type="text"
-                  name="group_name"
-                  value={formData.group_name}
+                  name="name"
+                  value={formData.name}
                   onChange={handleChange}
                   className="form-control"
                   required
@@ -132,11 +138,59 @@ const GroupEdit = (props) => {
                     theme === "dark" ? "light" : "dark"
                   }`}
                 >
-                  Description:
+                  Country:
+                </label>
+                <input
+                  type="text"
+                  name="Country"
+                  value={formData.Country}
+                  onChange={handleChange}
+                  className="form-control"
+                />
+              </div>
+              <div className={classes["form-group"]}>
+                <label
+                  className={`${classes["group-createdAt"]} text-${
+                    theme === "dark" ? "light" : "dark"
+                  }`}
+                >
+                  Pincode:
+                </label>
+                <input
+                  type="text"
+                  name="pincode"
+                  value={formData.pincode}
+                  onChange={handleChange}
+                  className="form-control"
+                />
+              </div>
+              <div className={classes["form-group"]}>
+                <label
+                  className={`${classes["group-createdAt"]} text-${
+                    theme === "dark" ? "light" : "dark"
+                  }`}
+                >
+                  Phone:
+                </label>
+                <input
+                  type="text"
+                  name="Phone"
+                  value={formData.Phone}
+                  onChange={handleChange}
+                  className="form-control"
+                />
+              </div>
+              <div className={classes["form-group"]}>
+                <label
+                  className={`${classes["group-createdAt"]} text-${
+                    theme === "dark" ? "light" : "dark"
+                  }`}
+                >
+                  Address:
                 </label>
                 <textarea
-                  name="group_description"
-                  value={formData.group_description}
+                  name="Address"
+                  value={formData.Address}
                   onChange={handleChange}
                   className="form-control"
                 />
@@ -148,9 +202,9 @@ const GroupEdit = (props) => {
                 Update
               </button>
               <button
-                type="submit"
+                type="button"
                 onClick={() => {
-                  props.EditGroupHandler();
+                  props.UserUpdate();
                 }}
                 className={`${classes["cancelbtn"]} btn btn-danger`}
               >
@@ -164,4 +218,4 @@ const GroupEdit = (props) => {
   );
 };
 
-export default GroupEdit;
+export default UserUpdate;

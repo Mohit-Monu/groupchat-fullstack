@@ -19,3 +19,7 @@ export const signUp = (dataform) => async (dispatch) => {
     throw new Error(error.response.data.message);
   }
 };
+export const logOut = () => async (dispatch) => {
+    await dispatch({ type: "LOG_OUT"});
+};
+ 

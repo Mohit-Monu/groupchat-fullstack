@@ -1,4 +1,3 @@
-
 .box {
   margin-bottom: 2.5px;
   display: flex;
@@ -9,6 +8,7 @@
   margin-left: 0px;
   border-radius: 5px;
   cursor: pointer;
+  margin: 4px;
 }
 .box img {
   height: 6vh;
@@ -17,7 +17,6 @@
   object-fit: cover;
   margin-right: 10px;
 }
-
 .box h5 {
   margin: 0;
   white-space: nowrap;
@@ -30,8 +29,6 @@
 }
 .inputt{
   width: 100%;
-  padding:2.5px;
-  border-radius: 5px;
   font-size: 18px;
 }
 .input2{
@@ -89,7 +86,82 @@
     font-size: 18px;
   }
 }
-
+@media (max-width: 375px) {
+  .img1 {
+    margin-right: 2px;
+  }
+  .img2 {
+    margin-right: 2px;
+  }
+  .butt{
+    width: 15%;
+    height: 45px;
+    margin-left: 2px;
+  }
+  .inputt{
+    height: 50px;
+    padding: 0px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+  .input2{
+    height: 45px;
+    width:60%;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+}
+@media (max-width: 331px) {
+  .butt{
+    width: 20%;
+    height: 45px;
+    margin-left: 2px;
+  }
+  .inputt{
+    height: 50px;
+    padding: 0px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+  .input2{
+    height: 45px;
+    width:50%;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+}
+@media (max-width: 284px) {
+  .img1 {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+  }
+  .img2 {
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+  }
+  .butt{
+    width: 20%;
+    height: 45px;
+    margin-left: 2px;
+  }
+  .inputt{
+    height: 50px;
+    padding: 0px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+  .input2{
+    height: 45px;
+    width:43%;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+}
 .group-selector {
   display: flex;
   flex-direction: column;
@@ -104,6 +176,11 @@
 .heading {
   font-size: 24px;
   margin-bottom: 10px;
+}
+.backbtn{
+  cursor: pointer;
+  height: 35px;
+  left: 0px;
 }
 
 

@@ -1,39 +1,43 @@
-
-.othermsg {
-  float: left;
-  width: 70%;
-  border-radius: 0px 10px 10px 10px;
-  padding: 4px;
-  position: relative;
-  margin-bottom: 7px;
-}
-.msg {
-  padding-left: 5px;
-  margin-top: 3px;
-  overflow-wrap: break-word;
-  word-break: break-all;
-}
-.name{
-  padding-left: 5px;
-  color: darkblue;
-}
-.time {
-  float: right; 
-  color: darkblue;
-  position: absolute; 
-  bottom: 4px; 
-  right: 4px; 
-  font-size: 16px;
-}
 .bigbox {
-  padding: 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
 }
 .yourmsg {
-  float: right;
-  width: 70%;
-  border-radius: 10px 0px 10px 10px;
-  padding: 4px;
-  position: relative;
-  margin-bottom: 7px;
+  max-width: 70%;
+  border-radius: 10px;
+  padding: 8px;
+  margin-left: auto; 
+}
 
+.othermsg {
+  max-width: 70%;
+  border-radius: 10px;
+  padding: 8px;
+  margin-right: auto;
+}
+
+.name {
+  font-weight: bold;
+  color: darkblue; 
+  margin-bottom: 5px;
+}
+
+.msg {
+  margin: 5px 0;
+  overflow-wrap: break-word;   
+  word-break: break-all;
+}
+
+.time {
+  font-size: 14px;
+  color: darkblue;
+  float: right;
+}
+.imag {
+  min-width: 90%;
+  margin-top: 5px;
+  max-width: 100%;
+  cursor: pointer;
 }

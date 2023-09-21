@@ -70,6 +70,7 @@
     float: left;
     width: 50px;
     border-radius: 50%; 
+    height: 50px;
   }
   .participent h4{
     margin-top: 10px;
@@ -78,14 +79,17 @@
   }
   .participent button{
     margin-top: 5px;
-
     float: right;
   }
   .participent p{
     float: right;
     margin-top: 10px;
     margin-right: 5px;
-
+  }
+  .backbtn{
+    cursor: pointer;
+    height: 35px;
+    left: 0px;
   }
 
   @media (max-width: 717px) {

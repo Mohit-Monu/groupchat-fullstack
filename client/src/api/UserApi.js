@@ -22,3 +22,37 @@ export const createGroup = async (name, token) => {
   }
 };
 
+export const UpdateUserPic = async (picdata,token) => {
+  const config = {
+    method: "post",
+    data: picdata,
+    url: "/user/UpdateUserPic",
+    headers: {
+      Authorization: token,
+    },
+  };
+  try {
+    const res = await API(config);
+    return res;
+  } catch (err) {
+    console.log(err);
+    throw (err);
+  }
+}
+export const updateProfile = async (picdata,token) => {
+  const config = {
+    method: "patch",
+    data: picdata,
+    url: "/user/updateProfile",
+    headers: {
+      Authorization: token,
+    },
+  };
+  try {
+    const res = await API(config);
+    return res;
+  } catch (err) {
+    console.log(err);
+    throw (err);
+  }
+}

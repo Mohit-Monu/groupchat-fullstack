@@ -16,7 +16,7 @@ const MainMenuBig = () => {
         <Col className={`${classes["userbox"]} p-1 `} style={{borderRight:`${theme==="dark"?("2px solid white"):("2px solid black ")}`}}>
           <UsersMenu />
         </Col>
-        <Col className={`${classes["userbox"]}  p-1`} sm={8}>
+        <Col className={`${classes["userbox"]}  p-0`} sm={8}>
           <ChatMenu/>
         </Col>
       </Row>

@@ -158,10 +158,10 @@ async function updateProfile(req, res) {
     const userId = req.user._id;
     const myobj = {
       name: req.body.name,
-      Country: req.body.country,
+      Country: req.body.Country,
       pincode: req.body.pincode,
-      Address: req.body.address,
-      Phone: req.body.phone,
+      Address: req.body.Address,
+      Phone: req.body.Phone,
     };
     await USERS.findByIdAndUpdate(userId, myobj, { new: true });
     res.status(200).json({ myobj, success: true });
