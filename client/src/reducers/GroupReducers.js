@@ -43,6 +43,20 @@ const groupReducer = (
         loading: false,
         error: false,
       };
+      case "RECEIVED_MESSAGE":
+        console.log(action)
+        if(state.currentgroupdata.group!=undefined){
+        if(state.currentgroupdata.group._id===action.data.group){
+          if(state.currentgroupdata.messages[state.currentgroupdata.messages.length-1]._id!=action.data._id){
+            state.currentgroupdata.messages.push(action.data)
+          }
+        }
+      }
+        return {
+          ...state,
+          loading: false,
+          error: false,
+        };
     case "DELETE_GROUP":
       const newGroup = state.groupData.filter(
         (group) => group._id !== action.data

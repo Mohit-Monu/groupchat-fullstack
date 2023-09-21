@@ -32,6 +32,7 @@ export const sendMessage = (config,token) => async (dispatch) => {
   try{
     const  {data}  = await GroupApi.sendMessage(config,token);
     await dispatch({ type: "SEND_MESSAGE", data:data.data,sender:data.sender});
+    return [data.data,data.sender]
   }catch(error){
     console.log(error)
     throw new Error(error.response.data.message);
@@ -46,6 +47,16 @@ export const SendFile = (config,token,group_id) => async (dispatch) => {
     throw new Error(error.response.data.message);
   }
 }
+export const receivemessage = (req) => async (dispatch) => {
+  try{
+    console.log(req)
+    await dispatch({ type: "RECEIVED_MESSAGE", data:req});
+  }catch(error){
+    console.log(error)
+    throw new Error(error.response.data.message);
+  }
+}
+
 export const deleteGroup = (group_id,token) => async (dispatch) => {
   try{
     await GroupApi.deleteGroup(group_id,token);

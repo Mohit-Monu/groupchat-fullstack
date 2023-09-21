@@ -10,10 +10,12 @@ import Button from "react-bootstrap/Button";
 import ShowMessages from "../../ShowMessages/ShowMessages";
 import Spinner from "../../Spinner/Spinner";
 import groupicon from "./defaultgroup.jpg";
-import { SendFile, sendMessage } from "../../../actions/GroupActions";
+import { SendFile, receivemessage, sendMessage } from "../../../actions/GroupActions";
 import { ShowParticipent } from "../../ShowParticipent/ShowParticipent";
 import backbtnlight from "./backbtnlight.png"
 import backbtn from "./backbtn.png"
+import socketIO from "socket.io-client";
+const socket = socketIO.connect("http://localhost:5000");
 const ChatMenu = (props) => {
   const theme = useSelector((state) => state.userSettingReducer.theme);
   const token = useSelector((state) => state.authReducer.authData.token);
@@ -49,14 +51,19 @@ const ChatMenu = (props) => {
   const onEmojiClick = (event, emojiObject) => {
     setInputState((prev) => prev + event.emoji);
   };
-  function sendMessageHandler(e) {
+  async function sendMessageHandler(e) {
     e.preventDefault();
     const config = {
       message: inputState,
       group_id: group.currentgroupdata.group._id,
     };
-    dispatch(sendMessage(config, token));
-    setInputState("");
+    const res = await dispatch(sendMessage(config, token));
+    const obj=res[0]
+    obj.sender={
+      _id:res[1]._id,
+      name:res[1].name
+    }
+    socket.emit("sendmessage", obj);
   }
   async function sendFileHandler(e) {
     const file=e.target.files[0];
@@ -68,6 +75,17 @@ const ChatMenu = (props) => {
   function showparticipenthandler() {
     setshowparticipent(!showparticepent);
   }
+    useEffect(() => {
+    if (group.currentgroupdata.group != undefined) {
+      socket.on("sendmessageResponse", (data) => {
+        console.log("first")
+      if(group.currentgroupdata.group._id==data.group){
+        console.log(data)
+        dispatch(receivemessage(data));
+      }
+    });
+    }
+  }, [socket]);
   return group.loading ? (
     <Spinner />
   ) : !group.currentgroupdata.group ? (
