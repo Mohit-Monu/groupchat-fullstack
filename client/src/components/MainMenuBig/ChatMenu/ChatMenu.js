@@ -70,7 +70,13 @@ const ChatMenu = (props) => {
     const formData = new FormData();
     formData.append('file', file);
     console.log(formData)
-    await dispatch(SendFile(formData, token,group.currentgroupdata.group._id));
+    const res =await dispatch(SendFile(formData, token,group.currentgroupdata.group._id));
+    const obj=res[0]
+    obj.sender={
+      _id:res[1]._id,
+      name:res[1].name
+    }
+    socket.emit("sendmessage", obj);
   }
   function showparticipenthandler() {
     setshowparticipent(!showparticepent);
